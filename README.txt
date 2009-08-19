@@ -2,6 +2,10 @@ Drupal 6 Installationen
 
 Hiermit können verschiedene vorkonfigurierte Drupal-Installationen herunter geladen werden.
 
+DRUPAL
+
+  Version: 6.13
+
 ALLGEMEIN
 
 Eine konfigurierte Installation enthält zusätzlich zum Drupal-Kern verschiedene Module.
