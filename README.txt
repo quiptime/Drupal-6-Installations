@@ -23,17 +23,9 @@ GEMEINSAMKEITEN
 
 KONFIGURATIONEN
 
-  Standard
+  Informationen über die einzelnen Konfigurationen sind im Wiki zu finden.
 
-  Die Konfiguration enthält folgende Module:
-  - CCK,
-  - Filefield,
-  - Imageapi,
-  - Imagecache,
-  - Imagefield,
-  - Views
-
-  Weitere Konfigurationen folgen.
+  Aktuell existiert nur die Konfiguration "Standard". Weitere Konfigurationen folgen.
 
 DOWNLOADS
 
