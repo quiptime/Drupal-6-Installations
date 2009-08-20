@@ -6,9 +6,18 @@ dependencies[] = imageapi
 package = ImageCache
 core = 6.x
 
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.info
 ; Information added by drupal.org packaging script on 2009-04-17
 version = "6.x-2.0-beta9"
+=======
+; Information added by drupal.org packaging script on 2009-08-19
+version = "6.x-2.0-beta10"
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.info
 core = "6.x"
 project = "imagecache"
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.info
 datestamp = "1239992507"
+=======
+datestamp = "1250716281"
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.info
 

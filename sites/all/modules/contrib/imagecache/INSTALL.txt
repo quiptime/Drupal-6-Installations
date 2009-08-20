@@ -1,6 +1,16 @@
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/INSTALL.txt
 Apache2 + mod_rewrite
   Works out of the box..
+=======
+For ImageCache to work properly it needs to be able to make use fou clean URLs.
+This requires some webserver specific setup.
+>>>>>>> master:sites/all/modules/contrib/imagecache/INSTALL.txt
 
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/INSTALL.txt
+=======
+Apache2 + mod_rewrite
+  Works out of the box.
+>>>>>>> master:sites/all/modules/contrib/imagecache/INSTALL.txt
 
 LightHTTPD:
   http://nordisch.org/2007/2/6/drupal-on-lighttpd-with-clean-urls

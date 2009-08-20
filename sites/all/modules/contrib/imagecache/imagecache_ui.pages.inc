@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
 // $Id: imagecache_ui.pages.inc,v 1.2 2009/04/14 00:01:21 drewish Exp $
+=======
+// $Id: imagecache_ui.pages.inc,v 1.6 2009/05/03 17:27:46 drewish Exp $
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
 
 /**
  * Preset Admin callbacks and required functions.
@@ -40,6 +44,7 @@ function imagecache_ui_preset_overview() {
   return $output;
 }
 
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
 
 function imagecache_ui_preset_add_form($form_state) {
   $form = array();
@@ -82,6 +87,8 @@ function  imagecache_ui_preset_add_form_submit($form, &$form_state) {
 }
 
 
+=======
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
 function imagecache_ui_preset_delete_form($form_state, $preset = array()) {
   if (empty($preset)) {
     drupal_set_message(t('The specified preset was not found'), 'error');
@@ -173,14 +180,28 @@ function imagecache_ui_preset_export_form(&$form_state, $preset = array()) {
 
 
 function imagecache_ui_preset_form($form_state, $preset = array()) {
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   if (empty($preset)) {
     drupal_set_message(t('The specified preset was not found.'), 'error');
     drupal_goto('admin/build/imagecache');
   }
 
+=======
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   $form = array();
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   // @TODO: for some reason, simply setting '#disabled' on the normal presetname
   // textfield fails to pass the values successfully to the submit handler.
+=======
+
+  $form['presetid'] = array(
+    '#type' => 'value',
+    '#value' => $preset['presetid'],
+  );
+
+  // Browsers don't submit disabled form values so we've got to put two copies
+  // of the name on the form: one for the submit handler and one for the user.
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   if ($preset['storage'] === IMAGECACHE_STORAGE_DEFAULT) {
     $form['presetname'] = array(
       '#type' => 'value',
@@ -205,11 +226,26 @@ function imagecache_ui_preset_form($form_state, $preset = array()) {
     );
   }
 
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   $form['presetid'] = array(
     '#type' => 'value',
     '#value' => $preset['presetid'],
+=======
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => $preset['storage'] === IMAGECACHE_STORAGE_DEFAULT ? t('Override Defaults') : t('Save Preset'),
+    '#weight' => 9,
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   );
 
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
+=======
+  // For new presets don't show the preview or all actions to be added.
+  if (empty($preset['presetid'])) {
+    return $form;
+  }
+
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   $form['actions'] = array(
     '#type' => 'fieldset',
     '#title' => t('Actions'),
@@ -222,9 +258,16 @@ function imagecache_ui_preset_form($form_state, $preset = array()) {
     if (!$definition = imagecache_action_definition($action['action'])) {
       continue;
     }
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
     $action_name =  t($definition['name']);
+=======
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
     $action_form['name'] = array(
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
       '#value' => $action_name,
+=======
+      '#value' => t($definition['name']),
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
     );
 
     $action_form['action'] = array(
@@ -272,8 +315,11 @@ function imagecache_ui_preset_form($form_state, $preset = array()) {
     '#collapsed' => count($preset['actions']) > 0,
     '#access' => $preset['storage'] !== IMAGECACHE_STORAGE_DEFAULT,
   );
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
 
 
+=======
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   foreach (imagecache_action_definitions() as $action => $definition) {
     $form['actions']['new'][] = array(
       '#type' => 'markup',
@@ -285,6 +331,7 @@ function imagecache_ui_preset_form($form_state, $preset = array()) {
     );
   }
 
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
 /**
  @todo: 404/403 image per preset.
  @todo: global 404/403 image.
@@ -323,6 +370,8 @@ function imagecache_ui_preset_form($form_state, $preset = array()) {
     '#value' => $preset['storage'] === IMAGECACHE_STORAGE_DEFAULT ? t('Override Defaults') : t('Update Preset'),
   );
 
+=======
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   // Display a preview image for this action. Put it below the submit button so
   // users don't have to do a bunch of scrolling.
   $preview_path = file_create_path('imagecache_sample.png');
@@ -339,11 +388,34 @@ function imagecache_ui_preset_form($form_state, $preset = array()) {
     '#type' => 'item',
     '#title' => t('Preview'),
     '#value' => l($imagecache_path, $imagecache_path) .'<br />'. l("<img src='$imagecache_path' />", $imagecache_path, array('html' => TRUE)),
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
+=======
+    '#weight' => 10,
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   );
 
   return $form;
 }
 
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
+=======
+function imagecache_ui_preset_form_validate($form, &$form_state) {
+  $values = $form_state['values'];
+  // Check for duplicates
+  foreach (imagecache_presets() as $preset) {
+    if ($values['presetname'] == $preset['presetname'] && $values['presetid'] != $preset['presetid']) {
+      form_set_error('presetname', t('The preset name you have chosen is already in use.'));
+      break;
+    }
+  }
+
+  // Check for illegal characters in preset names
+  if (preg_match('/[^0-9a-zA-Z_\-]/', $values['presetname'])) {
+    form_set_error('presetname', t('Please only use alphanumeric characters, underscores (_), and hyphens (-) for preset names.'));
+  }
+}
+
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
 function imagecache_ui_preset_form_submit($form, &$form_state) {
   // Save the preset first to retrieve the presetid when overriding
   $preset = imagecache_preset_save($form_state['values']);
@@ -360,9 +432,12 @@ function imagecache_ui_preset_form_submit($form, &$form_state) {
 
   // Push back to the preset form
   $form_state['redirect'] = 'admin/build/imagecache/'. $preset['presetid'];
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
 
   // Clear preset cache
   imagecache_presets(TRUE);
+=======
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
 }
 
 function theme_imagecache_ui_preset_actions($form) {
@@ -402,58 +477,154 @@ function theme_imagecache_ui_preset_actions($form) {
       'class' => 'draggable',
     );
   }
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   $output = theme('table', $header, $rows, array('id' => 'imagecache-preset-actions'));
   drupal_add_tabledrag('imagecache-preset-actions', 'order', 'sibling', 'imagecache-action-order-weight');
+=======
+
+  $output = '';
+  if ($rows) {
+    drupal_add_tabledrag('imagecache-preset-actions', 'order', 'sibling', 'imagecache-action-order-weight');
+    $output = theme('table', $header, $rows, array('id' => 'imagecache-preset-actions'));
+  }
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   $output .= drupal_render($form);
   return $output;
 }
 
 
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
 function imagecache_ui_action_form($form_state, $preset, $action) {
   $definitions = imagecache_action_definitions();
 
   if (empty($action)) {
     drupal_set_message(t('Unknown Action.'), 'error');
     drupal_goto('admin/build/imagecache');
+=======
+/**
+ * Page with form for adding a new action to add to a preset.
+ */
+function imagecache_ui_action_add_page($preset, $actionname) {
+  // Make sure the name is valid.
+  if (!$definition = imagecache_action_definition($actionname)) {
+    drupal_set_message(t('Unknown action.'), 'error');
+    drupal_goto('admin/build/imagecache/'. $preset['presetid']);
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   }
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
+=======
+  $action = array(
+    'presetid' => $preset['presetid'],
+    'action' => $actionname,
+    'data' => array(),
+  );
+  return drupal_get_form('imagecache_ui_action_form', $preset, $action);
+}
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
 
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   if (empty($preset)) {
     drupal_set_message(t('Unknown Preset.'), 'error');
+=======
+
+function imagecache_ui_action_form($form_state, $preset, $action) {
+  // Do some error checking.
+  if (empty($preset['presetid'])) {
+    drupal_set_message(t('Unknown preset.'), 'error');
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
     drupal_goto('admin/build/imagecache');
   }
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
+=======
+  if (empty($action['action']) || !$definition = imagecache_action_definition($action['action'])) {
+    drupal_set_message(t('Unknown action.'), 'error');
+    drupal_goto('admin/build/imagecache/'. $preset['presetid']);
+  }
+  if ($action['presetid'] != $preset['presetid']) {
+    drupal_set_message(t('This %action action is not associated %preset preset.', array('%action' => $action['action'], '%preset' => $preset['presetname'])), 'error');
+    drupal_goto('admin/build/imagecache/'. $preset['presetid']);
+  }
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
 
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   $form = array(
     '#tree' => TRUE,
+=======
+  $form['#tree'] = TRUE;
+  $form['presetid'] = array(
+    '#type' => 'value',
+    '#value' => $action['presetid'],
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   );
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
 
+=======
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   $form['actionid'] = array(
     '#type' => 'value',
     '#value' => $action['actionid'],
   );
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
+=======
+  $form['action'] = array(
+    '#type' => 'value',
+    '#value' => $action['action'],
+  );
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
 
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
 
   if (!empty($definitions[$action['action']]['file'])) {
     require_once($definitions[$action['action']]['file']);
+=======
+  if (!empty($definition['file'])) {
+    require_once($definition['file']);
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   }
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   $form['data'] = call_user_func($action['action'] .'_form', $action['data']);
+=======
+  if (function_exists($action['action'] .'_form')) {
+    $form['data'] = call_user_func($action['action'] .'_form', $action['data']);
+  }
+
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   $form['submit'] = array(
     '#type' => 'submit',
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
     '#value' => t('Update Action'),
+=======
+    '#value' => empty($action['actionid']) ? t('Create Action') : t('Update Action'),
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   );
   return $form;
 }
 
 function imagecache_ui_action_form_submit($form, &$form_state) {
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   if ($action = imagecache_action($form_state['values']['actionid'])) {
     $action = array_merge($action, $form_state['values']);
     imagecache_action_save($action);
     drupal_set_message(t('The action was succesfully updated.'));
     $form_state['redirect'] = 'admin/build/imagecache/'. $action['presetid'];
+=======
+  imagecache_action_save($form_state['values']);
+  if (empty($form_state['values']['presetid'])) {
+    drupal_set_message(t('The action was succesfully created.'));
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   }
   else {
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
     drupal_set_message(t('Unknown Action: @action_id', array('@action_id' => $form_state['values']['actionid'])));
     $form_state['redirect'] = 'admin/build/imagecache';
+=======
+    drupal_set_message(t('The action was succesfully updated.'));
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
   }
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
+=======
+  $form_state['redirect'] = 'admin/build/imagecache/'. $form_state['values']['presetid'];
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
 }
 
 
@@ -486,6 +657,7 @@ function imagecache_ui_action_delete_form_submit($form, &$form_state) {
   drupal_set_message(t('The action has been deleted.'));
   $form_state['redirect'] = 'admin/build/imagecache/'. $action['presetid'];
 }
+<<<<<<< HEAD:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
 
 
 function imagecache_ui_action_add_form($form_state, $preset, $actionname) {
@@ -519,3 +691,5 @@ function imagecache_ui_action_add_form_submit($form, &$form_state) {
   imagecache_action_save($form_state['values']);
   $form_state['redirect'] = 'admin/build/imagecache/'. $form_state['values']['presetid'];
 }
+=======
+>>>>>>> master:sites/all/modules/contrib/imagecache/imagecache_ui.pages.inc
